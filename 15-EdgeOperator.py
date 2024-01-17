@@ -100,6 +100,16 @@ rows, cols = img.shape
 cv2.imshow("Original Image", img)
 cv2.waitKey(0)
 
+# Difference Operator
+img2 = np.zeros(img.shape, np.uint8)
+for i in range(1, rows - 1):
+    for j in range(1, cols - 1):
+        img2[i, j] = DifferenceOperator(img, i, j)
+
+cv2.imshow("Difference Operator", img2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
 # Robert Operator
 imgx, imgy = RobertOperator(img, rows, cols)
 cv2.imshow("Robert Operator X", imgx)
@@ -121,12 +131,4 @@ cv2.imshow("Sobel Operator Y", imgy)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-# Difference Operator
-img2 = np.zeros(img.shape, np.uint8)
-for i in range(1, rows - 1):
-    for j in range(1, cols - 1):
-        img2[i, j] = DifferenceOperator(img, i, j)
 
-cv2.imshow("Difference Operator", img2)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
