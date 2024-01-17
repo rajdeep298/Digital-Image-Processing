@@ -41,6 +41,6 @@ for i in range(img.shape[0]):
             new_img[i, j] = 0
 
 # Display the image
-cv2.imshow("Output Image", new_img)
+cv2.imshow("Grey Level Sliced Image", new_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
