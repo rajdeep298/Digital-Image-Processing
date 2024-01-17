@@ -1,6 +1,5 @@
 import cv2
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Reading the image
 img = cv2.imread("Images/img.png", cv2.IMREAD_GRAYSCALE)
