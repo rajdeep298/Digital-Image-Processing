@@ -7,16 +7,20 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # Brightness Enhancement
-brightnessEnhancement = 100
-img = img + brightnessEnhancement
-cv2.imshow("Brighten Image", img)
+img1=np.zeros(img.shape,np.uint8)
+for i in range(img.shape[0]):
+    for j in range(img.shape[1]):
+        img1[i,j]=img[i,j]+(256-img[i,j])//2
+cv2.imshow('Brightness Enhanced Image',img1)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # Brightness Reduction
-brightnessReduction = 100
-img = img - brightnessReduction
-cv2.imshow("Darken Image", img)
+img1=np.zeros(img.shape,np.uint8)
+for i in range(img.shape[0]):
+    for j in range(img.shape[1]):
+        img1[i,j]=img[i,j]//2
+cv2.imshow("Brightness Reduced Image", img1)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
