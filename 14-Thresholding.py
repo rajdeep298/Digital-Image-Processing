@@ -9,7 +9,7 @@ threshold = np.zeros(img.shape, dtype=np.uint8)
 m = img.max() // 2
 for i in range(img.shape[0]):
     for j in range(img.shape[1]):
-        if (img[i, j] > m):
+        if img[i, j] > m:
             threshold[i, j] = 255
         else:
             threshold[i, j] = 0
