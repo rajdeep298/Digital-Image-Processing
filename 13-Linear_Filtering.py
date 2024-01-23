@@ -34,23 +34,24 @@ def WeightedAverageFilter(img, rows, cols):
     return img_new.astype(np.uint8)
 
 
+
 # Median Filter
-# def MedianFilter(img,rows,cols):
-#     # Performing convolution
-#     img_new = np.zeros(img.shape, dtype=np.uint8)
-#     img=np.array(img,dtype=np.uint8)
-#     for i in range(1, rows):
-#         for j in range(1, cols):
-#             temp = [img[i - 1, j - 1], img[i - 1, j], img[i - 1, j + 1], img[i, j - 1], img[i, j], img[i, j + 1],
-#                     img[i + 1, j - 1], img[i + 1, j], img[i + 1, j + 1]]
-#             img_new[i, j] = np.median(temp)
-#     return img_new.astype(np.uint8)
+def MedianFilter(img, rows, cols):
+    # Performing convolution
+    img_new = np.zeros(img.shape, dtype=np.uint8)
+    img = np.array(img, dtype=np.uint8)
+    for i in range(1, rows - 1):
+        for j in range(1, cols - 1):
+            temp = [img[i - 1, j - 1], img[i - 1, j], img[i - 1, j + 1], img[i, j - 1], img[i, j], img[i, j + 1],
+                    img[i + 1, j - 1], img[i + 1, j], img[i + 1, j + 1]]
+            img_new[i, j] = np.median(temp)
+    return img_new.astype(np.uint8)
 
 
 # Reading the image
-img = cv2.imread("Images/img.png", 1)
+img = cv2.imread("Images/img.png", 0)
 
-rows, cols,_ = img.shape
+rows,cols= img.shape
 # Displaying the image
 img_new = MeanFilter(img, rows, cols)
 cv2.imshow("Original Image", img)
@@ -59,7 +60,7 @@ cv2.imshow("Mean Filtered Image", img_new)
 img_new = WeightedAverageFilter(img, rows, cols)
 cv2.imshow("Weighted Average Filtered Image", img_new)
 
-# img_new = MedianFilter(img,rows,cols)
-# cv2.imshow("Median Filtered Image", img_new)
+img_new = MedianFilter(img,rows,cols)
+cv2.imshow("Median Filtered Image", img_new)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
