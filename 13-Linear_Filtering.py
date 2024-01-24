@@ -73,7 +73,7 @@ def MinFilter(img, rows, cols):
 
 
 # Reading the image
-img = cv2.imread("Images/img.png", 0)
+img = cv2.imread("Images/img.png", 1)
 
 rows,cols= img.shape
 # Displaying the image
