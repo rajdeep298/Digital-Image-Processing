@@ -18,7 +18,7 @@ def addGaussianNoise(img, mean, sigma):
     row, col = img.shape
     gauss = np.zeros((row, col))
     cv2.randn(gauss, mean,sigma)
-    gauss=(gauss**0.7).astype(np.uint8)
+    gauss=(gauss**0.8).astype(np.uint8)
     noisy = img + gauss
     return noisy
 
@@ -28,7 +28,7 @@ cv2.imshow("Original Image", img)
 cv2.waitKey(0)
 
 # Specify the number of noises
-num_noises = 500  # You can adjust this number based on your requirement
+num_noises = 2000  # You can adjust this number based on your requirement
 
 # Adding salt and pepper noise
 img1 = addSaltPepperNoise(img.copy(), num_noises)
