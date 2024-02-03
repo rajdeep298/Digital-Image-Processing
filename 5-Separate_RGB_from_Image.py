@@ -12,7 +12,7 @@ b, g, r = cv2.split(img)
 k = np.zeros_like(b)
 
 # Merging the image
-b = cv2.merge((b, k, k))
+b = cv2.merge((b, k, k)) # cv2.merge( (b, g, r) )
 g = cv2.merge((k, g, k))
 r = cv2.merge((k, k, r))
 
