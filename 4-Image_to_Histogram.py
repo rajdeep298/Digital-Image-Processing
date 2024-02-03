@@ -10,5 +10,7 @@ cv2.destroyAllWindows()
 
 dst = cv2.calcHist(img, [0], None, [256], [0,256])
 plt.hist(img.ravel(),256,[0,256])
+#or
+#plt.plot(dst)
 plt.title('Histogram for gray scale image')
 plt.show()
