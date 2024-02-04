@@ -2,6 +2,7 @@ import cv2
 import random
 import numpy as np
 
+
 def addSaltPepperNoise(img, n):
     row, col = img.shape
     for i in range(1, n + 1):  # Pick random number of pixels to change into white
@@ -14,13 +15,15 @@ def addSaltPepperNoise(img, n):
         img[x, y] = 0
     return img
 
+
 def addGaussianNoise(img, mean, sigma):
     row, col = img.shape
     gauss = np.zeros((row, col))
-    cv2.randn(gauss, mean,sigma)
-    gauss=(gauss**0.8).astype(np.uint8)
+    cv2.randn(gauss, mean, sigma)
+    gauss = (gauss ** 0.8).astype(np.uint8)
     noisy = img + gauss
     return noisy
+
 
 # Reading the image
 img = cv2.imread("Images/img.png", cv2.IMREAD_GRAYSCALE)
